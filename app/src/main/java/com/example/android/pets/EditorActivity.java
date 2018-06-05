@@ -16,7 +16,7 @@
 package com.example.android.pets;
 
 import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +31,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.android.pets.data.PetContract.PetEntry;
-import com.example.android.pets.data.PetDbHelper;
 
 /**
  * Allows user to create a new pet or edit an existing one.
@@ -111,26 +110,28 @@ public class EditorActivity extends AppCompatActivity {
 
     // Get user inputs and save new pet into database
     private void insertPet () {
+        // Read from input fields
+        // Use trim to eliminate leading or trailing white space
         String name = mNameEditText.getText().toString().trim();
         String breed = mBreedEditText.getText().toString().trim();
         int weight = Integer.parseInt(mWeightEditText.getText().toString().trim());
 
-        PetDbHelper petDbHelper = new PetDbHelper(this);
-        SQLiteDatabase db = petDbHelper.getWritableDatabase();
-
+        // Create a ContentValues object where column names are the keys,
+        // and pet attributes from the editor are the values.
         ContentValues values = new ContentValues();
-
         values.put(PetEntry.COLUMN_PET_NAME, name);
         values.put(PetEntry.COLUMN_PET_BREED, breed);
         values.put(PetEntry.COLUMN_PET_GENDER, mGender);
         values.put(PetEntry.COLUMN_PET_WEIGHT, weight);
 
-        long newRowId = db.insert(PetEntry.TABLE_NAME, null, values);
+        // Insert a new pet into the provider, returning the content URI for the new pet.
+        Uri newUri = getContentResolver().insert(PetEntry.CONTENT_URI, values);
 
-        if (newRowId == -1) {
-            Toast.makeText(this, "Error with saving pet", Toast.LENGTH_SHORT).show();
+        // Show a toast message depending on whether or not the insertion was successful
+        if (newUri == null) {
+            Toast.makeText(this, R.string.editor_insert_pet_failed, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Pet saved with id: " + newRowId, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.editor_insert_pet_successful, Toast.LENGTH_SHORT).show();
         }
     }
 
