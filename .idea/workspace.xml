@@ -19,10 +19,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/CatalogActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/CatalogActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/EditorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/EditorActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,26 +82,10 @@
       <file leaf-file-name="PetProvider.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/data/PetProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="273" column="32" lean-forward="false" selection-start-line="273" selection-start-column="32" selection-end-line="273" selection-end-column="32" />
+            <state relative-caret-position="195">
+              <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditorActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/EditorActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2535#2585#0" expanded="true" />
-                <element signature="e#2626#2675#0" expanded="true" />
-                <element signature="e#6056#6089#0" expanded="true" />
-                <element signature="e#6169#6206#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,14 +94,30 @@
       <file leaf-file-name="CatalogActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/CatalogActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+            <state relative-caret-position="2066">
+              <caret line="173" column="61" lean-forward="false" selection-start-line="173" selection-start-column="56" selection-end-line="173" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1882#2128#0" expanded="true" />
                 <element signature="e#2127#2128#0" expanded="true" />
                 <element signature="e#2578#3175#0" expanded="true" />
                 <element signature="e#3174#3175#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditorActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/EditorActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-71">
+              <caret line="207" column="43" lean-forward="true" selection-start-line="207" selection-start-column="43" selection-end-line="207" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2771#2821#0" expanded="true" />
+                <element signature="e#2973#3022#0" expanded="true" />
+                <element signature="e#6403#6436#0" expanded="true" />
+                <element signature="e#6516#6553#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,7 +141,7 @@
       <file leaf-file-name="PetCursorAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/PetCursorAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
+            <state relative-caret-position="510">
               <caret line="61" column="35" lean-forward="false" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -170,7 +167,7 @@
       <file leaf-file-name="PetDbHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/data/PetDbHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-453">
+            <state relative-caret-position="108">
               <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="58" />
               <folding>
                 <element signature="e#1152#1153#0" expanded="true" />
@@ -199,6 +196,18 @@
       <find>and</find>
       <find>android m</find>
       <find>mPet</find>
+      <find>cursor</find>
+      <find>ursor</find>
+      <find>getStr</find>
+      <find>projec</find>
+      <find>co</find>
+      <find>column</find>
+      <find>columnI</find>
+      <find>columnIn</find>
+      <find>nameEdit</find>
+      <find>wei</find>
+      <find>spinner</find>
+      <find>reset</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1927,10 +1936,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/PetCursorAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_catalog.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/data/PetProvider.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/CatalogActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/data/PetProvider.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/pets/EditorActivity.java" />
       </list>
     </option>
@@ -2646,9 +2655,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/content/ContentUris.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="108" column="22" lean-forward="false" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/PetCursorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
+        <state relative-caret-position="510">
           <caret line="61" column="35" lean-forward="false" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2658,9 +2683,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/data/PetProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/data/PetDbHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-453">
+        <state relative-caret-position="108">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="58" />
           <folding>
             <element signature="e#1152#1153#0" expanded="true" />
@@ -2681,28 +2716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/data/PetProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="273" column="32" lean-forward="false" selection-start-line="273" selection-start-column="32" selection-end-line="273" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/CatalogActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        <state relative-caret-position="2066">
+          <caret line="173" column="61" lean-forward="false" selection-start-line="173" selection-start-column="56" selection-end-line="173" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1882#2128#0" expanded="true" />
@@ -2715,14 +2732,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/pets/EditorActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+        <state relative-caret-position="-71">
+          <caret line="207" column="43" lean-forward="true" selection-start-line="207" selection-start-column="43" selection-end-line="207" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2535#2585#0" expanded="true" />
-            <element signature="e#2626#2675#0" expanded="true" />
-            <element signature="e#6056#6089#0" expanded="true" />
-            <element signature="e#6169#6206#0" expanded="true" />
+            <element signature="e#2771#2821#0" expanded="true" />
+            <element signature="e#2973#3022#0" expanded="true" />
+            <element signature="e#6403#6436#0" expanded="true" />
+            <element signature="e#6516#6553#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -15,19 +15,23 @@
  */
 package com.example.android.pets;
 
+import android.app.LoaderManager;
 import android.content.ContentValues;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -37,7 +41,7 @@ import com.example.android.pets.data.PetContract.PetEntry;
 /**
  * Allows user to create a new pet or edit an existing one.
  */
-public class EditorActivity extends AppCompatActivity {
+public class EditorActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     /** EditText field to enter the pet's name */
     private EditText mNameEditText;
@@ -56,6 +60,8 @@ public class EditorActivity extends AppCompatActivity {
      * 0 for unknown gender, 1 for male, 2 for female.
      */
     private int mGender = 0;
+    private static final int PET_LOADER = 0;
+    private Uri mCurrentPetUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +78,8 @@ public class EditorActivity extends AppCompatActivity {
         // "Add a pet".
         if (currentPetUri != null) {
             setTitle(getString(R.string.editor_activity_title_edit_pet));
+            mCurrentPetUri = currentPetUri;
+            getLoaderManager().initLoader(PET_LOADER, null, this);
         } else {
             setTitle(getString(R.string.editor_activity_title_new_pet));
         }
@@ -183,4 +191,56 @@ public class EditorActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Instantiate and return a new Loader for the given ID.
+     *
+     * @param id   The ID whose loader is to be created.
+     * @param args Any arguments supplied by the caller.
+     * @return Return a new Loader instance that is ready to start loading.
+     */
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        String[] projection = {
+                PetEntry._ID,
+                PetEntry.COLUMN_PET_NAME,
+                PetEntry.COLUMN_PET_BREED,
+                PetEntry.COLUMN_PET_GENDER,
+                PetEntry.COLUMN_PET_WEIGHT
+        };
+
+        return new CursorLoader(this,
+                mCurrentPetUri,
+                projection,
+                null,
+                null,
+                null);
+    }
+
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        // Proceed with moving to the first row of the cursor and reading data from it
+        // (This should be the only row in the cursor)
+        if(data.moveToFirst()) {
+            mNameEditText.setText(data.getString(data.getColumnIndex(PetEntry.COLUMN_PET_NAME)));
+            mBreedEditText.setText(data.getString(data.getColumnIndex(PetEntry.COLUMN_PET_BREED)));
+            mGenderSpinner.setSelection(data.getInt(data.getColumnIndex(PetEntry.COLUMN_PET_GENDER)));
+            mWeightEditText.setText(Integer.toString(data.getInt(data.getColumnIndex(PetEntry.COLUMN_PET_WEIGHT))));
+        }
+    }
+
+    /**
+     * Called when a previously created loader is being reset, and thus
+     * making its data unavailable.  The application should at this point
+     * remove any references it has to the Loader's data.
+     *
+     * @param loader The Loader that is being reset.
+     */
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
+    }
+
+
 }
