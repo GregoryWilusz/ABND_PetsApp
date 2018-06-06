@@ -74,13 +74,16 @@ public class CatalogActivity extends AppCompatActivity {
         Cursor cursor = getContentResolver().query(PetEntry.CONTENT_URI, projection, null, null, null);
 
         // Find the ListView which will be populated with the pet data
-        ListView listView = (ListView) findViewById(R.id.list_view);
+        ListView petListView = (ListView) findViewById(R.id.list_view);
+
+        View emptyView = findViewById(R.id.empty_view);
+        petListView.setEmptyView(emptyView);
 
         // Setup an Adapter to create a list item for each row of pet data in the Cursor.
         PetCursorAdapter petCursorAdapter = new PetCursorAdapter(this, cursor);
 
         // Attach the adapter to the ListView.
-        listView.setAdapter(petCursorAdapter);
+        petListView.setAdapter(petCursorAdapter);
     }
 
     private void insertPet() {
