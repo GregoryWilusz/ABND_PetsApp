@@ -140,7 +140,18 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         // Use trim to eliminate leading or trailing white space
         String name = mNameEditText.getText().toString().trim();
         String breed = mBreedEditText.getText().toString().trim();
-        int weight = Integer.parseInt(mWeightEditText.getText().toString().trim());
+        String weightString = mWeightEditText.getText().toString().trim();
+
+        // Check if this is supposed to be a new pet
+        // and check if all the fields in the editor are blank
+        if (mCurrentPetUri == null &&
+                TextUtils.isEmpty(name) && TextUtils.isEmpty(breed) &&
+                TextUtils.isEmpty(weightString) && mGender == PetEntry.GENDER_UNKNOWN) {
+            // Since no fields were modified, we can return early without creating a new pet.
+            // No need to create ContentValues and no need to do any ContentProvider operations.
+            Toast.makeText(this, R.string.editor_insert_pet_failed_empty, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Create a ContentValues object where column names are the keys,
         // and pet attributes from the editor are the values.
@@ -148,6 +159,13 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         values.put(PetEntry.COLUMN_PET_NAME, name);
         values.put(PetEntry.COLUMN_PET_BREED, breed);
         values.put(PetEntry.COLUMN_PET_GENDER, mGender);
+
+        // If the weight is not provided by the user, don't try to parse the string into an
+        // integer value. Use 0 by default.
+        int weight = 0;
+        if (!TextUtils.isEmpty(weightString)) {
+            weight = Integer.parseInt(weightString);
+        }
         values.put(PetEntry.COLUMN_PET_WEIGHT, weight);
 
         if (mCurrentPetUri == null) {
