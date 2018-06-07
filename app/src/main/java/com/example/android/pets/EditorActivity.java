@@ -16,6 +16,7 @@
 package com.example.android.pets;
 
 import android.app.LoaderManager;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -133,8 +134,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         });
     }
 
-    // Get user inputs and save new pet into database
-    private void insertPet () {
+    // Get user input from editor and save pet into database.
+    private void savePet() {
         // Read from input fields
         // Use trim to eliminate leading or trailing white space
         String name = mNameEditText.getText().toString().trim();
@@ -149,14 +150,31 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         values.put(PetEntry.COLUMN_PET_GENDER, mGender);
         values.put(PetEntry.COLUMN_PET_WEIGHT, weight);
 
-        // Insert a new pet into the provider, returning the content URI for the new pet.
-        Uri newUri = getContentResolver().insert(PetEntry.CONTENT_URI, values);
+        if (mCurrentPetUri == null) {
+            // This is a NEW pet, so insert a new pet into the provider,
+            // returning the content URI for the new pet.
+            Uri newUri = getContentResolver().insert(PetEntry.CONTENT_URI, values);
 
-        // Show a toast message depending on whether or not the insertion was successful
-        if (newUri == null) {
-            Toast.makeText(this, R.string.editor_insert_pet_failed, Toast.LENGTH_SHORT).show();
+            // Show a toast message depending on whether or not the insertion was successful
+            if (newUri == null) {
+                Toast.makeText(this, R.string.editor_insert_pet_failed, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, R.string.editor_insert_pet_successful, Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(this, R.string.editor_insert_pet_successful, Toast.LENGTH_SHORT).show();
+            // Otherwise this is an EXISTING pet, so update the pet with content URI: mCurrentPetUri
+            // and pass in the new ContentValues. Pass in null for the selection and selection args
+            // because mCurrentPetUri will already identify the correct row in the database that
+            // we want to modify.
+            // Update current pet into the provider, returning the content URI for the new pet.
+            int rowsAffected = getContentResolver().update(mCurrentPetUri, values, null, null);
+
+            // Show a toast message depending on whether or not the insertion was successful
+            if (rowsAffected == 0) {
+                Toast.makeText(this, R.string.editor_update_pet_failed, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, R.string.editor_update_pet_successful, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -175,7 +193,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
                 // Save pet to database
-                insertPet();
+                savePet();
                 // exit activity
                 finish();
                 return true;
