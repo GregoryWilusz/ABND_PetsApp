@@ -4,6 +4,7 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.database.Cursor;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,13 +53,20 @@ public class PetCursorAdapter extends CursorAdapter {
      */
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView tvPetName = (TextView) view.findViewById(R.id.name);
-        TextView tvPetBreed = (TextView) view.findViewById(R.id.summary);
+        TextView nameTextView = (TextView) view.findViewById(R.id.name);
+        TextView summaryTextView = (TextView) view.findViewById(R.id.summary);
 
         String petName = cursor.getString(cursor.getColumnIndexOrThrow("name"));
         String petBreed = cursor.getString(cursor.getColumnIndexOrThrow("breed"));
 
-        tvPetName.setText(petName);
-        tvPetBreed.setText(petBreed);
+        // If the pet breed is empty string or null, then use some default text
+        // that says "Unknown breed", so the TextView isn't blank.
+        if (TextUtils.isEmpty(petBreed)) {
+            petBreed = context.getString(R.string.unknown_breed);
+        }
+
+        // Update the TextViews with the attributes for the current pet
+        nameTextView.setText(petName);
+        summaryTextView.setText(petBreed);
     }
 }
